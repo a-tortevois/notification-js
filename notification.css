@@ -1,0 +1,140 @@
+:root {
+    --notification-width: 300px;
+    --notification-margin: 0 0 15px 0;
+    --notification-padding: 10px;
+    --notification-border-radius: 3px;
+    --notification-border-thick: 1px;
+    --notification-border-thicker: 3px;
+    --notification-icon: 25px;
+    --notification-span-padding: 10px;
+
+    --notification-color-text: rgb(20, 20, 20);
+
+    --notification-color-error: rgb(244, 67, 54);
+    --notification-color-error-border: rgba(244, 67, 54, .25);
+    --notification-color-error-background: rgb(253, 217, 215);
+
+    --notification-color-info: rgb(3, 169, 244);
+    --notification-color-info-border: rgba(3, 169, 244, .25);
+    --notification-color-info-background: rgb(205, 238, 253);
+
+    --notification-color-success: rgb(76, 175, 80);
+    --notification-color-success-border: rgba(76, 175, 80, .25);
+    --notification-color-success-background: rgb(219, 239, 220);
+
+    --notification-color-warning: rgb(255, 152, 0);
+    --notification-color-warning-border: rgba(255, 152, 0, .25);
+    --notification-color-warning-background: rgb(255, 234, 204);
+
+    --shadow: 0 0 var(--notification-margin) rgba(0, 0, 0, .25);
+    --fadein: fadein 1s ease-in forwards;
+    --fadeout: fadeout .6s ease-out forwards;
+}
+
+.notification-container {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: var(--notification-width);
+    max-width: calc(100% - 30px);
+}
+
+.notification {
+    margin: var(--notification-margin);
+    padding: var(--notification-padding);
+    border-radius: var(--notification-border-radius);
+
+    -webkit-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+}
+
+.notification svg {
+    margin: 0;
+    height: var(--notification-icon);
+    width: var(--notification-icon);
+    vertical-align: middle;
+}
+
+.notification span {
+    width: calc(var(--notification-width) - 2 * var(--notification-padding) - 2 * var(--notification-border-thick) - var(--notification-icon) - var(--notification-padding));
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0 0 0 var(--notification-span-padding);
+    font-family: Verdana;
+    /* font-weight: 500; */
+    font-size: 12px;
+    color: var(--notification-color-text);
+    text-overflow: ellipsis;
+}
+
+.notification-fadeIn {
+    -webkit-animation: var(--fadein);
+    animation: var(--fadein);
+}
+
+.notification-fadeOut {
+    -webkit-animation: var(--fadeout);
+    animation: var(--fadeout);
+}
+
+.notification-error {
+    border: var(--notification-color-error-border) solid var(--notification-border-thick);
+    border-top: var(--notification-color-error) solid var(--notification-border-thicker);
+    background-color: var(--notification-color-error-background);
+}
+
+.notification-info {
+    border: var(--notification-color-info-border) solid var(--notification-border-thick);
+    border-top: var(--notification-color-info) solid var(--notification-border-thicker);
+    background-color: var(--notification-color-info-background);
+}
+
+.notification-success {
+    border: var(--notification-color-success-border) solid var(--notification-border-thick);
+    border-top: var(--notification-color-success) solid var(--notification-border-thicker);
+    background-color: var(--notification-color-success-background);
+}
+
+.notification-warning {
+    border: var(--notification-color-warning-border) solid var(--notification-border-thick);
+    border-top: var(--notification-color-warning) solid var(--notification-border-thicker);
+    background-color: var(--notification-color-warning-background);
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

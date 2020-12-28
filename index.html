@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notification examples</title>
+    <meta charset="UTF-8">
+    <link href="./notification.css" rel="stylesheet" type="text/css">
+    <script src="./notification.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const notification = new Notification().appendTo('#container');
+            const info = notification.add(Notification.INFO, 'Notification info static example');
+            setTimeout(() => {
+                notification.remove(info);
+            }, 11000);
+            setTimeout(() => {
+                notification.add(Notification.INFO, 'Notification info example...', 5000);
+            }, 1000);
+            setTimeout(() => {
+                notification.add(Notification.ERROR, 'Notification error example...', 8000);
+            }, 1500);
+            setTimeout(() => {
+                notification.add(Notification.SUCCESS, 'Notification success example...', 6000);
+            }, 2000);
+            setTimeout(() => {
+                notification.add(Notification.WARNING, 'Notification warning example...', 7000);
+            }, 2500);
+        });
+
+        // Trick to viewing Javascript errors on iOS without the console
+        window.addEventListener('error', (event) => {
+            errorContainer = document.createElement('div');
+            errorContainer.innerHTML = `${event.message} <br/> ${event.filename} <br/> ${event.lineno}`;
+            document.body.appendChild(errorContainer);
+        });
+    </script>
+</head>
+<body>
+<div id="container">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id consectetur est, id scelerisque nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+        himenaeos. Quisque non arcu laoreet, ornare ligula non, suscipit orci. Etiam dignissim ex aliquam, sagittis dui quis, ultrices tortor. Vivamus porta mattis turpis vitae semper. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis ut tortor ac quam auctor aliquet. </p>
+    <p> Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sapien erat, suscipit ut dapibus eget, euismod sed lorem. Phasellus non vestibulum velit, vitae fermentum velit. Aliquam quis
+        lacinia sapien. Curabitur tempus turpis quis tincidunt tempus. Maecenas fermentum maximus lectus, nec varius sem aliquam sollicitudin. Nulla at porta neque. Suspendisse molestie, enim in
+        posuere mollis, turpis enim semper purus, quis aliquam massa libero vitae purus. Nam commodo nunc quis lorem hendrerit bibendum. Phasellus porta pellentesque odio non dictum. Donec sit amet
+        enim a tortor mollis porttitor a eget mi. In a scelerisque nibh, at fermentum erat. </p>
+    <p> Sed consequat nisi a lacinia viverra. Maecenas scelerisque sed sem non porttitor. Nulla facilisi. Maecenas gravida sapien vel pulvinar tincidunt. Vestibulum sollicitudin sapien nibh, eu
+        iaculis lacus commodo sed. Integer accumsan sed libero vel molestie. Nam mollis porta libero, et porttitor diam accumsan sit amet. Proin tristique sapien justo, vitae consectetur erat
+        fringilla eu. Sed semper ornare orci, ut ullamcorper diam pretium nec. Donec volutpat odio erat, nec pharetra ex viverra interdum. Maecenas lacinia luctus orci a porttitor. Nullam blandit
+        imperdiet consequat. Morbi venenatis, mauris vitae maximus consequat, justo magna aliquet metus, sit amet consectetur justo magna vitae erat. </p>
+    <p> Cras nec eros a lorem pulvinar ultricies. Sed sapien lacus, rutrum nec velit vitae, lacinia venenatis mi. Sed sollicitudin odio a lectus elementum, vitae aliquet turpis ullamcorper. In ex
+        eros, auctor non consequat vitae, fringilla vel neque. Nullam cursus congue nibh id porta. Phasellus rhoncus viverra nulla a rhoncus. Aliquam ultrices scelerisque libero, quis laoreet neque
+        efficitur condimentum. Pellentesque nulla nisi, rhoncus ut dapibus rhoncus, posuere ut nisi. Maecenas eleifend, magna quis tincidunt imperdiet, odio mi tristique velit, iaculis ullamcorper
+        orci arcu ac tortor. Integer sit amet augue mauris. Integer pulvinar tellus condimentum eros sodales, eget viverra dolor vehicula. Morbi vitae orci mattis risus accumsan volutpat. Maecenas
+        eget ex tincidunt, feugiat dui sit amet, aliquet lectus. </p>
+    <p>Nullam vulputate orci id egestas maximus. Vestibulum fringilla erat enim, a ornare magna facilisis eget. Nunc in maximus est, in varius nisl. Vestibulum lobortis nisi non erat varius
+        sollicitudin. Suspendisse ut luctus turpis. Praesent congue velit maximus, ornare purus et, ultrices augue. Duis sem leo, laoreet sit amet dolor vel, pretium ultricies eros. </p>
+</div>
+</body>
+</html>
